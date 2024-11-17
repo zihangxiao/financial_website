@@ -4,58 +4,173 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Financial Resource App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         /* General Styling */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f2f5;
-            color: #333;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f7fa;
+            color: #2f2f2f;
             margin: 0;
             padding: 0;
         }
+
+        
         header {
-            background-color: #3a8e3a;
-            color: white;
-            padding: 15px 0;
+            background: linear-gradient(135deg, #001d3d, #003566);
+            color: #ffd60a;
+            padding: 20px 0;
             text-align: center;
-            font-size: 1.5em;
+            font-size: 2em;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         .container {
             max-width: 900px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            margin: 30px auto;
+            padding: 25px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(0,0,0,0.1);
         }
         h2 {
-            color: #3a8e3a;
-            font-size: 1.3em;
-            border-bottom: 2px solid #3a8e3a;
+            color: #ffd60a;
+            font-size: 1.7em;
+            border-bottom: 2px solid #ffd60a;
             padding-bottom: 5px;
         }
-        .button, .expert-option, .login-btn {
-            background-color: #3a8e3a;
-            color: white;
-            padding: 10px 15px;
-            margin: 5px 0;
+        .button, .login-btn {
+            background-color: #ffc300;
+            color: #001d3d;
+            padding: 15px;
+            margin: 15px 0;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 1em;
+            font-size: 1.2em;
+            transition: background-color 0.3s, transform 0.2s;
+            display: block;
+            width: 100%;
+            text-align: center;
         }
-        .button:hover, .expert-option:hover, .login-btn:hover {
-            background-color: #2e6d2e;
+        .button:hover, .login-btn:hover {
+            background-color: #ffbf00;
+            transform: scale(1.05);
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .circle-button {
+            background-color: #ffc300;
+            color: #001d3d;
+            padding: 30px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s, transform 0.2s;
+            text-align: center;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .circle-button:hover {
+            background-color: #ffbf00;
+            transform: scale(1.1);
         }
         input[type="text"], input[type="password"] {
-            padding: 10px;
-            width: 90%;
+            padding: 12px;
+            width: calc(100% - 24px);
             margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            border: 1px solid #d1d1d1;
+            border-radius: 8px;
+            font-size: 1em;
         }
         .hidden {
             display: none;
+        }
+        .expert-card {
+            display: flex;
+            align-items: center;
+            background-color: #f7f9fc;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .expert-card:hover {
+            transform: translateY(-5px);
+        }
+        .expert-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        .expert-info {
+            flex: 1;
+        }
+        .expert-info h3 {
+            margin: 0;
+            color: #003566;
+            font-size: 1.5em;
+        }
+        .expert-info p {
+            margin: 5px 0;
+            color: #555;
+            font-size: 1em;
+        }
+        .time-slot {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f1f3f6;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        select {
+            width: 100%;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 1.1em;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+            transition: border-color 0.3s ease;
+        }
+        select:focus {
+            outline: none;
+            border-color: #ffc300;
+        }
+        .confirm-button {
+            background-color: #ffc300;
+            color: #001d3d;
+            padding: 15px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.2em;
+            width: 100%;
+            text-align: center;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .confirm-button:hover {
+            background-color: #ffbf00;
+            transform: scale(1.05);
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            padding: 20px;
+            background-color: #001d3d;
+            color: #ffd60a;
+            border-radius: 0 0 15px 15px;
         }
     </style>
     <script>
@@ -71,13 +186,21 @@
             }
         }
 
-        // Appointment Confirmation Interaction
+        // Navigation function to show different sections
+        function navigateTo(sectionId) {
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(section => {
+                section.classList.add('hidden');
+            });
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+
+        // Appointment confirmation function
         function confirmAppointment() {
-            const appointmentSection = document.getElementById("appointment-section");
-            const confirmMessage = document.createElement("p");
-            confirmMessage.textContent = "Your appointment has been successfully scheduled!";
-            confirmMessage.style.color = "green";
-            appointmentSection.appendChild(confirmMessage);
+            const expert = document.querySelector('input[name="expert-selection-radio"]:checked').value;
+            const selectedTime = document.getElementById("appointment-time").value;
+            localStorage.setItem("appointment", `Expert: ${expert}, Time: ${selectedTime}`);
+            document.getElementById("confirm-message").textContent = `Your appointment with ${expert} for ${selectedTime} has been successfully scheduled!`;
         }
     </script>
 </head>
@@ -98,86 +221,115 @@
             <button class="login-btn" onclick="login()">Login</button>
         </section>
 
-        <!-- Resource Page Section -->
+        <!-- Main Resource Page Section -->
         <section id="resource-page" class="hidden">
             <h2>Welcome to Your Financial Resources</h2>
+            <div class="button-container">
+                <button class="circle-button" onclick="navigateTo('premium-section')">Upgrade to Premium</button>
+                <button class="circle-button" onclick="navigateTo('appointment-section')">Appointment</button>
+                <button class="circle-button" onclick="navigateTo('quiz-section')">Quiz & Knowledge</button>
+            </div>
+        </section>
 
-            <!-- Financial Experts Section -->
-            <section class="experts">
-                <h2>Select a Financial Expert</h2>
-                <p>Choose from the experts below based on your financial needs:</p>
-                <div>
-                    <h3>Expert 1: Sarah Johnson</h3>
-                    <p>Expertise: Budgeting, Student Loans, Debt Management</p>
-                    <button class="expert-option">Choose Sarah</button>
-                </div>
-                <div>
-                    <h3>Expert 2: Michael Lee</h3>
-                    <p>Expertise: Investments, Retirement Planning, Wealth Management</p>
-                    <button class="expert-option">Choose Michael</button>
-                </div>
-                <div>
-                    <h3>Expert 3: Linda Smith</h3>
-                    <p>Expertise: Credit Repair, Financial Literacy Education</p>
-                    <button class="expert-option">Choose Linda</button>
-                </div>
-            </section>
+        <!-- Upgrade to Premium Section -->
+        <section id="premium-section" class="page-section hidden">
+            <h2>Freemium Options</h2>
+            <p>Upgrade to Premium for:</p>
+            <ul>
+                <li>Access to advanced financial quizzes and practice scenarios</li>
+                <li>Priority scheduling for financial consultations</li>
+                <li>Exclusive access to premium video content</li>
+            </ul>
+            <button class="button">Upgrade to Premium</button>
+            <button class="button" onclick="navigateTo('resource-page')">Back to Main</button>
+        </section>
 
-            <!-- Schedule Appointment -->
-            <section id="appointment-section" class="appointment-section">
-                <h2>Schedule an Appointment</h2>
+        <!-- Schedule Appointment Section -->
+        <section id="appointment-section" class="page-section hidden">
+            <h2>Schedule an Appointment</h2>
+
+            <!-- Financial Experts Selection -->
+            <div class="expert-card">
+                <img src="https://placecats.com/neo/200/200" alt="Sarah Johnson">
+                <div class="expert-info">
+                    <h3>Sarah Johnson</h3>
+                    <p>Specialties: Budgeting, Student Loans, Debt Management</p>
+                    <input type="radio" name="expert-selection-radio" value="Sarah Johnson"> Select Sarah Johnson
+                </div>
+            </div>
+
+            <div class="expert-card">
+                <img src="https://placecats.com/neo_banana/200/200" alt="Michael Lee">
+                <div class="expert-info">
+                    <h3>Michael Lee</h3>
+                    <p>Specialties: Investments, Retirement Planning, Wealth Management</p>
+                    <input type="radio" name="expert-selection-radio" value="Michael Lee"> Select Michael Lee
+                </div>
+            </div>
+
+            <div class="expert-card">
+                <img src="https://placecats.com/neo_2/200/200" alt="Linda Smith">
+                <div class="expert-info">
+                    <h3>Linda Smith</h3>
+                    <p>Specialties: Credit Repair, Financial Literacy Education</p>
+                    <input type="radio" name="expert-selection-radio" value="Linda Smith"> Select Linda Smith
+                </div>
+            </div>
+
+            <div class="time-slot">
                 <p>Select a time slot:</p>
-                <select>
+                <select id="appointment-time">
                     <option>10:00 AM - 10:30 AM</option>
                     <option>11:00 AM - 11:30 AM</option>
                     <option>2:00 PM - 2:30 PM</option>
                     <option>4:00 PM - 4:30 PM</option>
                 </select>
-                <button class="button" onclick="confirmAppointment()">Confirm Appointment</button>
-            </section>
-
-            <!-- Video and Quiz Pairing Section -->
-            <section class="video-quiz">
-                <h2>Financial Video Resources & Quizzes</h2>
-                
-                <!-- Video Lecture 1 & Quiz -->
-                <div>
-                    <h3>Lesson 1: Introduction to Budgeting</h3>
-                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/fakeVideo1" title="Video Lecture 1"></iframe>
-                    <p><strong>Quiz:</strong> After watching, test your understanding!</p>
-                    <p>Question: How much of your income should ideally go into savings each month?</p>
-                    <button class="button" onclick="alert('Correct! 20% is generally recommended.')">20%</button>
-                    <button class="button" onclick="alert('Try again. Financial advisors recommend around 20%.')">10%</button>
-                </div>
-
-                <!-- Video Lecture 2 & Quiz -->
-                <div>
-                    <h3>Lesson 2: Managing Student Loans</h3>
-                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/fakeVideo2" title="Video Lecture 2"></iframe>
-                    <p><strong>Quiz:</strong> Test your knowledge on student loans!</p>
-                    <p>Question: Which is the best method to manage student loans?</p>
-                    <button class="button" onclick="alert('Correct! Focus on high-interest loans.')">Pay off high-interest loans first</button>
-                    <button class="button" onclick="alert('Not ideal, try again.')">Pay off smallest loans first</button>
-                </div>
-            </section>
-
-            <!-- Freemium Information Section -->
-            <section class="premium-section">
-                <h2>Freemium Options</h2>
-                <p>Upgrade to Premium for:</p>
-                <ul>
-                    <li>Access to advanced financial quizzes and practice scenarios</li>
-                    <li>Priority scheduling for financial consultations</li>
-                    <li>Exclusive access to premium video content</li>
-                </ul>
-                <button class="button">Upgrade to Premium</button>
-            </section>
+            </div>
+            <button class="confirm-button" onclick="confirmAppointment()">Confirm Appointment</button>
+            <p id="confirm-message"></p>
+            <button class="button" onclick="navigateTo('resource-page')">Back to Main</button>
         </section>
 
+
+        <!-- Quiz & Knowledge Section -->
+        <section id="quiz-section" class="page-section hidden">
+            <h2>Financial Video Resources & Quizzes</h2>
+            <!-- Video Lecture 1 & Quiz -->
+            <div>
+                <h3>Lesson 1: Introduction to Budgeting</h3>
+                <iframe width="50%" height="200" src="https://www.youtube.com/embed/fakeVideo1" title="Video Lecture 1"></iframe>
+                <p><strong>Quiz:</strong> After watching, test your understanding!</p>
+                <p>Question: How much of your income should ideally go into savings each month?</p>
+                <button class="button" onclick="alert('Correct! 20% is generally recommended.')">20%</button>
+                <button class="button" onclick="alert('Try again. Financial advisors recommend around 20%.')">10%</button>
+            </div>
+
+            <!-- Video Lecture 2 & Quiz -->
+            <div>
+                <h3>Lesson 2: Managing Student Loans</h3>
+                <iframe width="50%" height="200" src="https://www.youtube.com/embed/fakeVideo2" title="Video Lecture 2"></iframe>
+                <p><strong>Quiz:</strong> Test your knowledge on student loans!</p>
+                <p>Question: Which is the best method to manage student loans?</p>
+                <button class="button" onclick="alert('Correct! Focus on high-interest loans.')">Pay off high-interest loans first</button>
+                <button class="button" onclick="alert('Not ideal, try again.')">Pay off smallest loans first</button>
+            </div>
+            <button class="button" onclick="navigateTo('resource-page')">Back to Main</button>
+        </section>
     </div>
+
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
 
 
 
