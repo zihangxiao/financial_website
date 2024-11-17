@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Financial Resource App</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #3a8e3a;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 1.5em;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h2 {
+            color: #3a8e3a;
+            font-size: 1.3em;
+            border-bottom: 2px solid #3a8e3a;
+            padding-bottom: 5px;
+        }
+        .button, .expert-option, .login-btn {
+            background-color: #3a8e3a;
+            color: white;
+            padding: 10px 15px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .button:hover, .expert-option:hover, .login-btn:hover {
+            background-color: #2e6d2e;
+        }
+        input[type="text"], input[type="password"] {
+            padding: 10px;
+            width: 90%;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+    <script>
+        // Simple login function for demo purposes
+        function login() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            if (username === "student" && password === "password") {
+                document.getElementById("login-section").classList.add("hidden");
+                document.getElementById("resource-page").classList.remove("hidden");
+            } else {
+                alert("Incorrect username or password!");
+            }
+        }
+
+        // Appointment Confirmation Interaction
+        function confirmAppointment() {
+            const appointmentSection = document.getElementById("appointment-section");
+            const confirmMessage = document.createElement("p");
+            confirmMessage.textContent = "Your appointment has been successfully scheduled!";
+            confirmMessage.style.color = "green";
+            appointmentSection.appendChild(confirmMessage);
+        }
+    </script>
+</head>
+<body>
+
+    <header>
+        Student Financial Resources - Freemium App
+    </header>
+
+    <div class="container">
+
+        <!-- Login Section -->
+        <section id="login-section">
+            <h2>Login</h2>
+            <p>Please log in to access your resources:</p>
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button class="login-btn" onclick="login()">Login</button>
+        </section>
+
+        <!-- Resource Page Section -->
+        <section id="resource-page" class="hidden">
+            <h2>Welcome to Your Financial Resources</h2>
+
+            <!-- Financial Experts Section -->
+            <section class="experts">
+                <h2>Select a Financial Expert</h2>
+                <p>Choose from the experts below based on your financial needs:</p>
+                <div>
+                    <h3>Expert 1: Sarah Johnson</h3>
+                    <p>Expertise: Budgeting, Student Loans, Debt Management</p>
+                    <button class="expert-option">Choose Sarah</button>
+                </div>
+                <div>
+                    <h3>Expert 2: Michael Lee</h3>
+                    <p>Expertise: Investments, Retirement Planning, Wealth Management</p>
+                    <button class="expert-option">Choose Michael</button>
+                </div>
+                <div>
+                    <h3>Expert 3: Linda Smith</h3>
+                    <p>Expertise: Credit Repair, Financial Literacy Education</p>
+                    <button class="expert-option">Choose Linda</button>
+                </div>
+            </section>
+
+            <!-- Schedule Appointment -->
+            <section id="appointment-section" class="appointment-section">
+                <h2>Schedule an Appointment</h2>
+                <p>Select a time slot:</p>
+                <select>
+                    <option>10:00 AM - 10:30 AM</option>
+                    <option>11:00 AM - 11:30 AM</option>
+                    <option>2:00 PM - 2:30 PM</option>
+                    <option>4:00 PM - 4:30 PM</option>
+                </select>
+                <button class="button" onclick="confirmAppointment()">Confirm Appointment</button>
+            </section>
+
+            <!-- Video and Quiz Pairing Section -->
+            <section class="video-quiz">
+                <h2>Financial Video Resources & Quizzes</h2>
+                
+                <!-- Video Lecture 1 & Quiz -->
+                <div>
+                    <h3>Lesson 1: Introduction to Budgeting</h3>
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/fakeVideo1" title="Video Lecture 1"></iframe>
+                    <p><strong>Quiz:</strong> After watching, test your understanding!</p>
+                    <p>Question: How much of your income should ideally go into savings each month?</p>
+                    <button class="button" onclick="alert('Correct! 20% is generally recommended.')">20%</button>
+                    <button class="button" onclick="alert('Try again. Financial advisors recommend around 20%.')">10%</button>
+                </div>
+
+                <!-- Video Lecture 2 & Quiz -->
+                <div>
+                    <h3>Lesson 2: Managing Student Loans</h3>
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/fakeVideo2" title="Video Lecture 2"></iframe>
+                    <p><strong>Quiz:</strong> Test your knowledge on student loans!</p>
+                    <p>Question: Which is the best method to manage student loans?</p>
+                    <button class="button" onclick="alert('Correct! Focus on high-interest loans.')">Pay off high-interest loans first</button>
+                    <button class="button" onclick="alert('Not ideal, try again.')">Pay off smallest loans first</button>
+                </div>
+            </section>
+
+            <!-- Freemium Information Section -->
+            <section class="premium-section">
+                <h2>Freemium Options</h2>
+                <p>Upgrade to Premium for:</p>
+                <ul>
+                    <li>Access to advanced financial quizzes and practice scenarios</li>
+                    <li>Priority scheduling for financial consultations</li>
+                    <li>Exclusive access to premium video content</li>
+                </ul>
+                <button class="button">Upgrade to Premium</button>
+            </section>
+        </section>
+
+    </div>
+
+</body>
+</html>
+
+
+
+
+
