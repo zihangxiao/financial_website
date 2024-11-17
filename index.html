@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Financial Resource App</title>
+    <title>Student Financial Solution App</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         /* General Styling */
@@ -172,6 +172,18 @@
             color: #ffd60a;
             border-radius: 0 0 15px 15px;
         }
+        .premium-feature {
+            background-color: #003566;
+            color: #ffd60a;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+        }
+        .premium-feature h3 {
+            color: #ffd60a;
+            margin-bottom: 10px;
+        }
     </style>
     <script>
         // Simple login function for demo purposes
@@ -207,7 +219,7 @@
 <body>
 
     <header>
-        Student Financial Resources - Freemium App
+        Student Financial Solution 
     </header>
 
     <div class="container">
@@ -241,6 +253,25 @@
                 <li>Exclusive access to premium video content</li>
             </ul>
             <button class="button">Upgrade to Premium</button>
+
+            <!-- New Premium Features -->
+            <div class="premium-feature">
+                <h3>Exclusive One-on-One Consultation</h3>
+                <p>Schedule a 1-hour session with our top financial advisors and get personalized advice tailored to your needs. Available for premium members only.</p>
+            </div>
+
+            <div class="premium-feature">
+                <h3>Advanced Budgeting Tools</h3>
+                <p>Unlock powerful budgeting tools that help you track expenses, save for your goals, and optimize your finances. Interactive dashboards available only for premium users.</p>
+                <button class="button" onclick="alert('Upgrade to Premium to access these tools!')">Try Advanced Tools</button>
+            </div>
+
+            <div class="premium-feature">
+                <h3>Exclusive Webinars and Workshops</h3>
+                <p>Attend live webinars and workshops hosted by financial experts. Stay updated on the latest trends in finance and improve your money management skills.</p>
+                <button class="button" onclick="alert('Register for the next webinar by upgrading to Premium!')">Register Now</button>
+            </div>
+
             <button class="button" onclick="navigateTo('resource-page')">Back to Main</button>
         </section>
 
@@ -297,7 +328,7 @@
             <!-- Video Lecture 1 & Quiz -->
             <div>
                 <h3>Lesson 1: Introduction to Budgeting</h3>
-                <iframe width="50%" height="200" src="https://www.youtube.com/embed/fakeVideo1" title="Video Lecture 1"></iframe>
+                <iframe width="50%" height="200" src="https://www.youtube.com/embed/pCwLhz0ltlE" title="Video Lecture 1"></iframe>
                 <p><strong>Quiz:</strong> After watching, test your understanding!</p>
                 <p>Question: How much of your income should ideally go into savings each month?</p>
                 <button class="button" onclick="alert('Correct! 20% is generally recommended.')">20%</button>
@@ -307,7 +338,7 @@
             <!-- Video Lecture 2 & Quiz -->
             <div>
                 <h3>Lesson 2: Managing Student Loans</h3>
-                <iframe width="50%" height="200" src="https://www.youtube.com/embed/fakeVideo2" title="Video Lecture 2"></iframe>
+                <iframe width="50%" height="200" src="https://www.youtube.com/embed/FyLRxU5mJPM" title="Video Lecture 2"></iframe>
                 <p><strong>Quiz:</strong> Test your knowledge on student loans!</p>
                 <p>Question: Which is the best method to manage student loans?</p>
                 <button class="button" onclick="alert('Correct! Focus on high-interest loans.')">Pay off high-interest loans first</button>
